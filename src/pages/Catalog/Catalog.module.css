@@ -1,0 +1,239 @@
+.page {
+  padding: 36px 0 72px;
+}
+
+/* Контекст поиска/фильтра */
+.context {
+  margin-bottom: 24px;
+}
+
+.contextTitle {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 6px;
+}
+
+.contextCount {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== Тулбар ===== */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.toolBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background-color: var(--pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  transition: background-color 0.2s ease;
+}
+
+.toolBtn:hover {
+  background-color: var(--pill-hover);
+}
+
+.toolCount {
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.caret {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.caretUp {
+  transform: rotate(180deg);
+}
+
+/* Выпадающее меню сортировки */
+.sort {
+  position: relative;
+}
+
+.sortMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 240px;
+  list-style: none;
+  padding: 6px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.15s ease-out;
+}
+
+.sortItem {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text);
+  transition: background-color 0.15s ease;
+}
+
+.sortItem:hover {
+  background-color: var(--surface-soft);
+}
+
+.sortItemActive {
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+/* ===== Панель фильтров ===== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 240px;
+  flex: 1;
+}
+
+.filterLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.resetBtn {
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.resetBtn:hover:not(:disabled) {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.resetBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Сетка ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===== Пусто ===== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 80px 24px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--muted);
+}
+
+.emptyIcon {
+  font-size: 52px;
+}
+
+.empty h2 {
+  color: var(--text);
+  font-size: 22px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 460px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .toolbar {
+    flex-wrap: wrap;
+  }
+}
